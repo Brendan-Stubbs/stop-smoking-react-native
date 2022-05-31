@@ -35,6 +35,6 @@ jobs:
       - name: Publish to Expo
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-        run: expo publish --non-interactive
+        run: npm install --global expo-cli && expo publish --non-interactive
         if: github.event_name == 'push'
 
