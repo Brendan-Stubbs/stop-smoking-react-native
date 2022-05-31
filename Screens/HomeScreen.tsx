@@ -12,10 +12,8 @@ import { AppContext } from "../store/context/app-context";
 import { ProgressBar } from "../components/ProgressBar";
 
 export const HomeScreen = () => {
-  const { lastSmoked, setLastSmoked, smokedToday, setSmokedToday } =
+  const { lastSmoked, setLastSmoked, smokedToday, setSmokedToday, timer } =
     useContext(AppContext);
-
-  const timer = { hours: 0, minutes: 1 };
 
   const hasCountdownExpired = isTimeSafe({
     lastSmoked,

@@ -1,8 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Moment, utc as moment } from "moment";
+import { Timer } from "../store/types";
 
 export enum LocalStorageKeys {
   LastSmoked = "lastSmoked",
+  Timer = "timer",
 }
 
 export const loadLastSmoked = async () => {
@@ -42,4 +44,13 @@ export const logCigarette = async (
   setTotalState(cigarettes.length);
 
   await AsyncStorage.setItem(key, JSON.stringify(cigarettes));
+};
+
+export const loadTimer = async () => {
+  const loaded = await AsyncStorage.getItem(LocalStorageKeys.Timer);
+  return loaded ? (JSON.parse(loaded) as Timer) : undefined;
+};
+
+export const saveTimer = async (timer: Timer) => {
+  await AsyncStorage.setItem(LocalStorageKeys.Timer, JSON.stringify(timer));
 };

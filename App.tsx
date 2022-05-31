@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { HomeScreen } from "./Screens/HomeScreen";
 import useFonts from "./hooks/useFonts";
 import * as SplashScreen from "expo-splash-screen";
 import { Moment, utc as moment } from "moment";
 import {
   getTodaysCigarettes,
   loadLastSmoked,
+  loadTimer,
 } from "./utils/local-storage-helper";
 import { NavigationContainer } from "@react-navigation/native";
 import { BottomTabNavigator } from "./Navigator";
@@ -16,11 +16,17 @@ const App = () => {
   const [IsReady, SetIsReady] = useState(false);
   const [lastSmoked, setLastSmoked] = useState<Moment | undefined>();
   const [smokedToday, setSmokedToday] = useState(0);
+  const [timer, setTimer] = useState({ minutes: 0, hours: 1 });
 
   const LoadApp = async () => {
     await useFonts();
     setLastSmoked(await loadLastSmoked());
     setSmokedToday((await getTodaysCigarettes()).length);
+
+    const loadedTimer = await loadTimer();
+    if (loadedTimer) {
+      setTimer(loadedTimer);
+    }
   };
 
   if (!IsReady) {
@@ -32,7 +38,7 @@ const App = () => {
     return (
       <>
         <StatusBar style="dark" />
-        <AppContextProvider defaultValues={{ lastSmoked, smokedToday }}>
+        <AppContextProvider defaultValues={{ lastSmoked, smokedToday, timer }}>
           <NavigationContainer>
             <BottomTabNavigator
               smokedToday={smokedToday}
