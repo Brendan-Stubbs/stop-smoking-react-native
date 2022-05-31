@@ -9,6 +9,7 @@ import { TimerSection } from "../components/TimerSection";
 import { logCigarette } from "../utils/local-storage-helper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AppContext } from "../store/context/app-context";
+import { ProgressBar } from "../components/ProgressBar";
 
 export const HomeScreen = () => {
   const { lastSmoked, setLastSmoked, smokedToday, setSmokedToday } =
@@ -40,6 +41,9 @@ export const HomeScreen = () => {
     <View style={styles.appContainer}>
       <Text style={styles.header}>Smokedown Timer</Text>
       <View style={styles.body}>
+        <View style={styles.progressContainer}>
+          <ProgressBar completed={5} total={10} />
+        </View>
         <View style={styles.counterContainer}>
           <TimerSection
             isSafe={isSafe}
@@ -51,9 +55,6 @@ export const HomeScreen = () => {
         <View style={styles.buttonContainer}>
           <SmokeButton isSafe={isSafe} onPress={smokeCigarette} />
         </View>
-        <Text style={styles.counterText}>
-          Cigarettes Smoked Today: {smokedToday}
-        </Text>
       </View>
     </View>
   );
@@ -79,6 +80,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.backgroundColor,
+  },
+  progressContainer: {
+    width: "75%",
+    marginBottom: 30,
+    // elevation: 20,
+    padding: 10,
   },
   buttonContainer: {
     marginTop: 20,
