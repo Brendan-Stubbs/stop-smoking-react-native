@@ -13,9 +13,13 @@ export const ProgressBar = (props: Props) => {
 
   return (
     <>
-      <Text style={getStyles(percentage).info}>Cigarettes Smoked Today: 5</Text>
+      <Text style={getStyles(percentage).info}>
+        Cigarettes Smoked Today: {completed} / {total}
+      </Text>
       <View style={getStyles(percentage).total}>
-        <View style={getStyles(percentage).completed} />
+        <View
+          style={getStyles(percentage < 100 ? percentage : 100).completed}
+        />
       </View>
     </>
   );
