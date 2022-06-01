@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 30,
   },
   buttonContainer: {
     alignItems: "center",

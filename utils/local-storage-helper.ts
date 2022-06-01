@@ -5,6 +5,7 @@ import { Timer } from "../store/types";
 export enum LocalStorageKeys {
   LastSmoked = "lastSmoked",
   Timer = "timer",
+  MaxCigs = "maxCigs",
 }
 
 export const loadLastSmoked = async () => {
@@ -53,4 +54,13 @@ export const loadTimer = async () => {
 
 export const saveTimer = async (timer: Timer) => {
   await AsyncStorage.setItem(LocalStorageKeys.Timer, JSON.stringify(timer));
+};
+
+export const loadMaxCigs = async () => {
+  const loaded = await AsyncStorage.getItem(LocalStorageKeys.MaxCigs);
+  return loaded ? Number(loaded) : 10;
+};
+
+export const saveMaxCigs = async (maxCigs: number) => {
+  await AsyncStorage.setItem(LocalStorageKeys.MaxCigs, maxCigs.toString());
 };

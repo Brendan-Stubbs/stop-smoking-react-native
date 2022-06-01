@@ -40,9 +40,6 @@ export const Incrementor = (props: Props) => {
         <Text style={styles.numberText}>{props.value}</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={handleIncrement}>
-          <Ionicons name="add" color="black" size={30} />
-        </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
           <Ionicons
             name="remove"
@@ -51,6 +48,9 @@ export const Incrementor = (props: Props) => {
             onPress={handleDecrement}
           />
         </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleIncrement}>
+          <Ionicons name="add" color="black" size={30} />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -58,7 +58,6 @@ export const Incrementor = (props: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "column",
     backgroundColor: colors.navColor,
     flex: 2,
     marginHorizontal: 10,

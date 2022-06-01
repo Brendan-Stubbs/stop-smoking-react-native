@@ -10,6 +10,8 @@ interface AppContextInterface {
   setSmokedToday: (v: number) => void;
   timer: Timer;
   setTimer: (v: Timer) => void;
+  maxCigs: number;
+  setMaxCigs: (v: number) => void;
 }
 
 export const AppContext = createContext<AppContextInterface>({
@@ -19,6 +21,8 @@ export const AppContext = createContext<AppContextInterface>({
   setSmokedToday: (v: number) => {},
   timer: { minutes: 0, hours: 0 },
   setTimer: (v: Timer) => {},
+  maxCigs: 0,
+  setMaxCigs: (v: number) => {},
 });
 
 interface Props {
@@ -27,10 +31,12 @@ interface Props {
     lastSmoked?: Moment;
     smokedToday: number;
     timer: Timer;
+    maxCigs: number;
   };
 }
 
 const AppContextProvider = (props: Props) => {
+  const [maxCigs, setMaxCigs] = useState(props.defaultValues.maxCigs);
   const [timer, setTimer] = useState(props.defaultValues.timer);
 
   const [lastSmoked, setLastSmoked] = useState<Moment | undefined>(
@@ -41,14 +47,17 @@ const AppContextProvider = (props: Props) => {
     props.defaultValues.smokedToday
   );
 
+  // Can I delete?
   const updateLastSmoked = (time: Moment) => {
     setLastSmoked(time);
   };
 
+  // Can I delete?
   const updateSmokedToday = (n: number) => {
     setSmokedToday(n);
   };
 
+  // Can I delete?
   const updateTimer = (timer: Timer) => {
     setTimer(timer);
   };
@@ -60,6 +69,8 @@ const AppContextProvider = (props: Props) => {
     setSmokedToday: updateSmokedToday,
     timer,
     setTimer: updateTimer,
+    maxCigs,
+    setMaxCigs,
   };
 
   return (
