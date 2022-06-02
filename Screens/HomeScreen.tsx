@@ -68,11 +68,12 @@ export const HomeScreen = () => {
 
       <View style={styles.adContainer}>
         <AdMobBanner
-          bannerSize="largeBanner"
+          bannerSize="banner"
           adUnitID={bannerId}
           servePersonalizedAds={false}
         />
       </View>
+
       {/* End Ad container */}
     </View>
   );
