@@ -1,6 +1,6 @@
 import { Moment, utc as moment } from "moment";
 import React, { useContext, useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Platform } from "react-native";
 import { colors } from "../constants/colors";
 import { isTimeSafe } from "../utils/date-helper";
 import { SmokeButton } from "../components/SmokeButton";
@@ -10,8 +10,12 @@ import { logCigarette } from "../utils/local-storage-helper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AppContext } from "../store/context/app-context";
 import { ProgressBar } from "../components/ProgressBar";
+import { AdMobBanner } from "expo-ads-admob";
+import { getBannerId, ScreenNames } from "../utils/banner-helper";
 
 export const HomeScreen = () => {
+  const bannerId = getBannerId({ test: true, screen: ScreenNames.homeScreen });
+
   const {
     lastSmoked,
     setLastSmoked,
@@ -60,6 +64,16 @@ export const HomeScreen = () => {
           <SmokeButton isSafe={isSafe} onPress={smokeCigarette} />
         </View>
       </View>
+      {/* Ad container */}
+
+      <View style={styles.adContainer}>
+        <AdMobBanner
+          bannerSize="largeBanner"
+          adUnitID={bannerId}
+          servePersonalizedAds={false}
+        />
+      </View>
+      {/* End Ad container */}
     </View>
   );
 };
@@ -113,5 +127,9 @@ const styles = StyleSheet.create({
     height: 150,
     backgroundColor: colors.warning,
     borderRadius: 100,
+  },
+  adContainer: {
+    backgroundColor: colors.backgroundColor,
+    alignItems: "center",
   },
 });
