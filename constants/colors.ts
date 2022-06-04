@@ -6,7 +6,7 @@ export const colors = {
   secondary: "#42eded",
   innerButtonSuccess: "#044012",
   innerButtonWarning: "#691612",
-  active: "#044012",
-  inactive: "#c6c3d4",
+  active: "#c6c3d4",
+  inactive: "#044012",
   backgroundColor: "#d3f5dc",
 };

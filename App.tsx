@@ -12,7 +12,6 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { BottomTabNavigator } from "./Navigator";
 import AppContextProvider from "./store/context/app-context";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const App = () => {
   const [IsReady, SetIsReady] = useState(false);
