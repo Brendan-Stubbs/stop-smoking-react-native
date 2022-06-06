@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
+import { BuyMeACoffee } from "../components/buy-me-a-coffee-button";
 import { MaxCigSetter } from "../components/MaxCigSetter";
 import { TimeSetter } from "../components/TimeSetter";
 import { colors } from "../constants/colors";
@@ -21,6 +22,8 @@ export const SettingsScreen = () => (
       </Text>
       <MaxCigSetter />
     </View>
+
+    <BuyMeACoffee />
   </View>
 );
 
@@ -30,6 +33,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     paddingTop: 10,
+    justifyContent: "space-between",
   },
   info: {
     fontSize: 13,
