@@ -9,7 +9,7 @@ export const TimerDisplay = (props: { timer: number; caption: string }) => {
   const totalSeconds = Math.floor(timer / 1000);
   const seconds = totalSeconds % 60;
   const minutes = Math.floor(totalSeconds / 60) % 60;
-  const hours = Math.floor(totalSeconds / 6000);
+  const hours = Math.floor(totalSeconds / 3600);
 
   return (
     <View style={styles.container}>
