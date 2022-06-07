@@ -14,7 +14,7 @@ import { AdMobBanner } from "expo-ads-admob";
 import { getBannerId, ScreenNames } from "../utils/banner-helper";
 
 export const HomeScreen = () => {
-  const bannerId = getBannerId({ test: true, screen: ScreenNames.homeScreen });
+  const bannerId = getBannerId({ test: false, screen: ScreenNames.homeScreen });
 
   const {
     lastSmoked,

@@ -15,7 +15,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -26,7 +28,8 @@
       },
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-8469454381902655~5878901036"
-      }
+      },
+      "package": "com.brendan_stubbs.stopsmokingreactnative"
     },
     "web": {
       "favicon": "./assets/favicon.png"
