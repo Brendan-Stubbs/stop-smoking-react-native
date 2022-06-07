@@ -1,4 +1,4 @@
-import { Moment, utc as moment } from "moment";
+import moment from "moment";
 import React, { useContext, useState } from "react";
 import { StyleSheet, View, Text, Platform } from "react-native";
 import { colors } from "../constants/colors";

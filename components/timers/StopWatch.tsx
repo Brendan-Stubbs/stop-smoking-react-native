@@ -1,4 +1,4 @@
-import { Moment, utc as moment } from "moment";
+import moment, { Moment } from "moment";
 import { useEffect, useRef, useState } from "react";
 import { View, Text } from "react-native";
 import { TimerDisplay } from "./TimerDisplay";

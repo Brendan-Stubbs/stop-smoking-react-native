@@ -1,4 +1,4 @@
-import { Moment, utc as moment } from "moment";
+import moment, { Moment } from "moment";
 
 export const isTimeSafe = (params: {
   lastSmoked?: Moment;

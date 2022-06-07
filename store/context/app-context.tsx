@@ -1,7 +1,8 @@
-import { Moment } from "moment";
-import { createContext, useState } from "react";
+import moment, { Moment } from "moment";
+import { createContext, useEffect, useState } from "react";
 import React from "react";
 import { Timer } from "../types";
+import { getTodaysCigarettes } from "../../utils/local-storage-helper";
 
 interface AppContextInterface {
   lastSmoked?: Moment;
@@ -47,28 +48,22 @@ const AppContextProvider = (props: Props) => {
     props.defaultValues.smokedToday
   );
 
-  // Can I delete?
-  const updateLastSmoked = (time: Moment) => {
-    setLastSmoked(time);
-  };
+  useEffect(() => {
+    const timeTilMidnight = moment().endOf("day").diff(moment());
 
-  // Can I delete?
-  const updateSmokedToday = (n: number) => {
-    setSmokedToday(n);
-  };
-
-  // Can I delete?
-  const updateTimer = (timer: Timer) => {
-    setTimer(timer);
-  };
+    setTimeout(async () => {
+      const todaysCigs = await getTodaysCigarettes();
+      setSmokedToday(todaysCigs.length);
+    }, timeTilMidnight);
+  }, [smokedToday]);
 
   const value = {
     lastSmoked,
-    setLastSmoked: updateLastSmoked,
+    setLastSmoked,
     smokedToday,
-    setSmokedToday: updateSmokedToday,
+    setSmokedToday,
     timer,
-    setTimer: updateTimer,
+    setTimer,
     maxCigs,
     setMaxCigs,
   };

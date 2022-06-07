@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Moment, utc as moment } from "moment";
+import moment, { Moment } from "moment";
 import { Timer } from "../store/types";
 
 export enum LocalStorageKeys {

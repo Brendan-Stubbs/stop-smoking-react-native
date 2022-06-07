@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import useFonts from "./hooks/useFonts";
 import * as SplashScreen from "expo-splash-screen";
-import { Moment, utc as moment } from "moment";
+import { Moment } from "moment";
 import {
   getTodaysCigarettes,
   loadLastSmoked,
