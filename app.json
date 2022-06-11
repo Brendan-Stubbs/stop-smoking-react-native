@@ -27,7 +27,8 @@
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-8469454381902655~5878901036"
       },
-      "package": "com.brendan_stubbs.stopsmokingreactnative"
+      "package": "com.brendan_stubbs.stopsmokingreactnative",
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
