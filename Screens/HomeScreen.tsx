@@ -70,7 +70,7 @@ export const HomeScreen = () => {
         <AdMobBanner
           bannerSize="banner"
           adUnitID={bannerId}
-          servePersonalizedAds={false}
+          servePersonalizedAds={true}
         />
       </View>
 
