@@ -54,7 +54,7 @@ const AppContextProvider = (props: Props) => {
     setTimeout(async () => {
       const todaysCigs = await getTodaysCigarettes();
       setSmokedToday(todaysCigs.length);
-    }, timeTilMidnight);
+    }, timeTilMidnight + 1000);
   }, [smokedToday]);
 
   const value = {
