@@ -10,7 +10,8 @@ import { logCigarette } from "../utils/local-storage-helper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AppContext } from "../store/context/app-context";
 import { ProgressBar } from "../components/ProgressBar";
-import { AdMobBanner } from "expo-ads-admob";
+// import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
+
 import { getBannerId, ScreenNames } from "../utils/banner-helper";
 
 export const HomeScreen = () => {
@@ -66,13 +67,15 @@ export const HomeScreen = () => {
       </View>
       {/* Ad container */}
 
-      <View style={styles.adContainer}>
-        <AdMobBanner
-          bannerSize="banner"
-          adUnitID={bannerId}
-          servePersonalizedAds={true}
+      {/* <View style={styles.adContainer}>
+        <BannerAd
+          size={BannerAdSize.FULL_BANNER}
+          unitId={bannerId}
+          requestOptions={{
+            requestNonPersonalizedAdsOnly: false,
+          }}
         />
-      </View>
+      </View> */}
 
       {/* End Ad container */}
     </View>
