@@ -28,7 +28,10 @@
         "googleMobileAdsAppId": "ca-app-pub-8469454381902655~5878901036"
       },
       "package": "com.brendan_stubbs.stopsmokingreactnative",
-      "versionCode": 4
+      "versionCode": 4,
+      "compileSdkVersion": 35,
+      "targetSdkVersion": 35,
+      "minSdkVersion": 23
     },
     "web": {
       "favicon": "./assets/favicon.png"
